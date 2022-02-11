@@ -1,0 +1,125 @@
+:root {
+	--color-bg: #181a1b;
+	--color-font: #e8e6e3;
+
+	--color-tile-empty: var(--color-bg);
+	/*  #0b0c0d; */
+	--color-tile-correct: #459e3d;
+	/*  #377e31; */
+	--color-tile-present: #eaab53;
+	/*  #955e12; */
+	--color-tile-wrong: #323539;
+	/* var(--color-bg); */
+
+}
+
+html {
+	background-color: var(--color-bg);
+	color: var(--color-font);
+	/* Would've done 'Impact', but that's unreadable. */
+	font-family: 'Roboto', sans-serif;
+	max-width: 50%;
+	margin: auto;
+	overflow: hidden;
+}
+
+h1, h2, h3, h4, h5, h6, .center {
+	text-align: center;
+}
+
+.modal-bg {
+	background-color: rgba(0, 0, 0, 0.5);
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 100;
+
+	/* Center inner modal */
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+
+}
+
+.modal {
+	background-color: var(--color-bg);
+	position: fixed;
+	display: flex;
+	text-align: center;
+	flex-direction: column;
+	justify-content: center;
+	width: 50%;
+	height: 50%;
+	z-index: 1;
+}
+
+.row {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+}
+
+.tile {
+	border: 2px solid #242829;
+	display: inline-block;
+	color: var(--color-font);
+	width: 4rem;
+	height: 4rem;
+	margin: 0.2rem;
+	text-align: center;
+	line-height: 4rem;
+	font-size: 2rem;
+	font-weight: bold;
+	text-transform: uppercase;
+	background-color: var(--color-tile-empty);
+	-ms-user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-webkit-touch-callout: none;
+	-khtml-user-select: none;
+	user-select: none;
+}
+
+.shake {
+	animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+}
+
+@keyframes shake {
+	10%, 90% {
+		transform: translate3d(-1px, 0, 0);
+	}
+
+	20%, 80% {
+		transform: translate3d(2px, 0, 0);
+	}
+
+	30%, 50%, 70% {
+		transform: translate3d(-4px, 0, 0);
+	}
+
+	40%, 60% {
+		transform: translate3d(4px, 0, 0);
+	}
+}
+
+.tile.filled {
+	border: 0px;
+	padding: 2px;
+}
+
+.tile.correct {
+	background-color: var(--color-tile-correct);
+}
+
+.tile.present {
+	background-color: var(--color-tile-present);
+}
+
+.tile.wrong {
+	background-color: var(--color-tile-wrong);
+}
